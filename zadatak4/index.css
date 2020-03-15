@@ -1,0 +1,29 @@
+#img{
+    max-height: 200px;
+}
+
+#content{
+    background-color: black;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#x{
+    color:white;
+    font-weight: 800;
+    font-size: 1.5em;
+    position: absolute;
+    right:5px;
+    top:5px;
+    cursor: pointer;
+}
+
+#left{
+    padding-right:10px;
+}
+
+#right{
+    padding-left:10px;
+}
