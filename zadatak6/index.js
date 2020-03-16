@@ -1,5 +1,5 @@
-document.getElementById("buttons").addEventListener("click", dugme)
-
+document.getElementById("buttons").addEventListener("click", dugme);
+document.addEventListener("keypress", dugme2);
 
 function dugme(){
     if(event.target.tagName.toLowerCase()==="button"){
@@ -12,4 +12,10 @@ function dugme(){
            document.getElementById("text").value += event.target.innerText;
        }
     }
+}
+
+function dugme2(){
+   if(!isNaN(event.key)||event.key==="+"||event.key==="-"||event.key==="*"||event.key==="/"||event.key==="."){
+    document.getElementById("text").value += event.key;
+   } 
 }
