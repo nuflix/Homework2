@@ -5,3 +5,26 @@
 #jepalindrom{
     display: none;
 }
+#dodaj{
+    display: none;
+}
+
+#btns{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#container{
+    display: inline-block;
+}
+
+.jedanKarakter{
+    display:flex;
+    flex-direction: column;
+    margin-right:10px;
+}
+
+#chars{
+    display:flex;
+    flex-direction: row;
+}
