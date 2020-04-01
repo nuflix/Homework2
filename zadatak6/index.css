@@ -1,0 +1,15 @@
+#buttons{
+    display:flex;
+    flex-wrap:wrap;
+    width:300px;
+    justify-content: center;
+
+}
+
+button{
+    margin:5px;
+}
+
+input[type="text"]{
+    width:300px;
+}

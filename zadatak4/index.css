@@ -18,6 +18,7 @@
     right:5px;
     top:5px;
     cursor: pointer;
+    display:none;
 }
 
 #left{
@@ -27,3 +28,5 @@
 #right{
     padding-left:10px;
 }
+
+body{margin:0;}

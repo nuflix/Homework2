@@ -32,13 +32,15 @@ function right(){
 }
 
 function zoomz(){
- img.style.maxHeight="90vh";
-img.style.maxWidth="90vw"; 
+ img.style.maxHeight="100vh";
+img.style.maxWidth="100vw"; 
+document.getElementById("x").style.display="block";
 }
 
 function close(){
     img.style.maxHeight="200px";
     img.style.maxWidth=""; 
+    document.getElementById("x").style.display="none";
 }
 
 function logKey(){
