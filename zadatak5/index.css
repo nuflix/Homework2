@@ -1,0 +1,31 @@
+.tab{
+    color: white;
+    background-color: cornflowerblue;
+    display:inline-block;
+    padding:10px;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.tab:hover{
+    background-color: cadetblue;
+}
+
+.sel{
+background-color: darkslateblue;
+}
+
+.sel:hover{
+    background-color: darkslateblue;
+}
+
+#shortB{
+    display:none;
+}
+
+#longB{
+    display:none;
+}

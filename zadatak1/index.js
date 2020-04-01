@@ -1,6 +1,8 @@
 var form = document.getElementById("addForm");
 var itemList = document.getElementById("items");
 var filter = document.getElementById("filter");
+var listS = document.getElementById("itemz");
+let id = -1;
 // Form submit event
 form.addEventListener("submit", addItem);
 // Delete event
@@ -8,6 +10,9 @@ itemList.addEventListener("click", removeItem);
 // Filter event
 filter.addEventListener("keyup", filterItems);
 // Add item
+document.addEventListener('keydown', sel);
+
+listS.addEventListener("click", sel2);
 
 window.addEventListener("load", loadz, false);
 
@@ -38,18 +43,34 @@ function removeItem(e) {
 // Filter items
 function filterItems(e) {
   // convert text to lowercase
+  listS.style.display="block";
+  if(e.keyCode===40||e.keyCode===38){
+    return 0;
+  }else if(e.keyCode===13){
+    if(listS.getElementsByClassName("sel").length>0){
+      filter.value=listS.getElementsByClassName("sel")[0].innerText;
+    }
+  }
+
+  id=-1;
+
   var text = e.target.value.toLowerCase();
   // Get list items
   var items = itemList.getElementsByTagName("li");
   // Convert HTMLCollection to an array
+  listS.innerHTML = "";
   Array.from(items).forEach(function(item) {
     var itemName = item.firstChild.textContent;
     if (itemName.toLowerCase().indexOf(text) != -1) {
       item.style.display = "block";
+     listS.innerHTML += item.outerHTML;
+     listS.getElementsByTagName("li")[listS.getElementsByTagName("li").length-1].removeChild(listS.getElementsByTagName("li")[listS.getElementsByTagName("li").length-1].getElementsByTagName("button")[0]);
     } else {
       item.style.display = "none";
     }
   });
+
+
 }
 
 function save(){
@@ -60,6 +81,39 @@ function loadz(){
     if(localStorage.getItem("items")){
     document.getElementById("items").innerHTML = localStorage.getItem("items").toString();
     }else{
-        document.getElementById("items").innerHTML = '                <li class="list-group-item">Item 1 <button class="btn btn-danger btn-sm float-right delete">X</button></li><li class="list-group-item">Item 2 <button class="btn btn-danger btn-sm float-right delete">X</button></li><li class="list-group-item">Item 3 <button class="btn btn-danger btn-sm float-right delete">X</button></li><li class="list-group-item">Item 4 <button class="btn btn-danger btn-sm float-right delete">X</button></li>';
+        document.getElementById("items").innerHTML = '<li class="list-group-item">Item 1 <button class="btn btn-danger btn-sm float-right delete">X</button></li><li class="list-group-item">Item 2 <button class="btn btn-danger btn-sm float-right delete">X</button></li><li class="list-group-item">Item 3 <button class="btn btn-danger btn-sm float-right delete">X</button></li><li class="list-group-item">Item 4 <button class="btn btn-danger btn-sm float-right delete">X</button></li>';
     }
+    listS.innerHTML = "";
+}
+
+function sel(){
+
+  if(listS.getElementsByClassName("list-group-item").length===1){
+    listS.getElementsByClassName("list-group-item")[0].classList.add("sel");
+  }else{
+  if(event.keyCode===40){
+   
+    id++;
+    if(id<=listS.getElementsByClassName("list-group-item").length-1){
+      if(id>0){
+   listS.getElementsByClassName("list-group-item")[id-1].classList.remove("sel");  
+      }
+    listS.getElementsByClassName("list-group-item")[id].classList.add("sel");
+    }else{
+      listS.getElementsByClassName("list-group-item")[0].classList.add("sel");
+      listS.getElementsByClassName("list-group-item")[id-1].classList.remove("sel");
+      id=0;
+    }
+
+  }
+
+}
+
+}
+
+function sel2(){
+  filter.value=event.target.innerText;
+  listS.innerHTML=event.target.outerHTML;
+  
+
 }

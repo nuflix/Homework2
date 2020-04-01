@@ -1,0 +1,15 @@
+.sel{
+    background-color: lightgray;
+}
+
+#itemz>li>button{
+    display:none;
+}
+
+#itemz>li{
+    color:black;
+}
+
+#itemz{
+    display:none;
+}
