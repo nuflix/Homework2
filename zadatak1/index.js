@@ -48,8 +48,11 @@ function filterItems(e) {
     return 0;
   }else if(e.keyCode===13){
     if(listS.getElementsByClassName("sel").length>0){
-      filter.value=listS.getElementsByClassName("sel")[0].innerText;
+      /* filter.value=listS.getElementsByClassName("sel")[0].innerText; */
+      sel2Enter();
+      return 0;
     }
+
   }
 
   id=-1;
@@ -115,5 +118,40 @@ function sel2(){
   filter.value=event.target.innerText;
   listS.innerHTML=event.target.outerHTML;
   
+ // var text = e.target.value.toLowerCase();
+  // Get list items
+  var items = itemList.getElementsByTagName("li");
+  // Convert HTMLCollection to an array
+  
+  Array.from(items).forEach(function(item) {
+    var itemName = item.firstChild.textContent;
+    if ( event.target.innerText.toString().toLowerCase() === itemName.toLowerCase()) {
+      item.style.display = "block";
+      //console.log("hello: " + item.innerText.substr(0, filter.value.length).toLowerCase());
+    } else {
+      item.style.display = "none";
+      //console.log(item.innerText.substr(0, filter.value.length).toLowerCase());
+    }
+  });
 
+}
+
+function sel2Enter(){
+
+  filter.value=listS.getElementsByClassName("sel")[0].innerText;;
+  listS.innerHTML=listS.getElementsByClassName("sel")[0].outerHTML;
+
+  var items = itemList.getElementsByTagName("li");
+  // Convert HTMLCollection to an array
+  
+  Array.from(items).forEach(function(item) {
+    var itemName = item.firstChild.textContent;
+    if ( filter.value.toString().toLowerCase() === itemName.toLowerCase()) {
+      item.style.display = "block";
+     // console.log("hello: " + item.innerText.substr(0, filter.value.length).toLowerCase());
+    } else {
+      item.style.display = "none";
+     // console.log(item.innerText.substr(0, filter.value.length).toLowerCase());
+    }
+  });
 }
