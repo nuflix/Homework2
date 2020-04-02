@@ -12,4 +12,13 @@
 
 #itemz{
     display:none;
+    z-index:9999;
+}
+
+header{
+    height:100px;
+}
+
+#main{
+    z-index:-1;
 }

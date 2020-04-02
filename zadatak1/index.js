@@ -110,6 +110,20 @@ function sel(){
 
   }
 
+  if(event.keyCode===38){
+   
+    id--;
+    if(id<0){
+      id=listS.getElementsByClassName("list-group-item").length-1;
+      listS.getElementsByClassName("list-group-item")[0].classList.remove("sel");
+      listS.getElementsByClassName("list-group-item")[id].classList.add("sel");
+    }else{
+      listS.getElementsByClassName("list-group-item")[id+1].classList.remove("sel");
+      listS.getElementsByClassName("list-group-item")[id].classList.add("sel");
+    }
+
+  }
+
 }
 
 }
